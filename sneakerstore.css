@@ -1,0 +1,347 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+  font-size: 100%
+}
+.container{
+    min-height: 100vh;
+    width: 100vw;
+    /* background-color: antiquewhite; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: rgba(234, 244, 244, 0.5); */
+    overflow-x: hidden;
+}
+
+
+.sneakerhead{
+    height: 10vh;
+    width: 100vw;
+    /* background-color: rgba(234, 244, 244, 0.5); */
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    position: sticky;
+    top:0px;
+    z-index: 4;
+    box-shadow: 5px 2px 3px rgba(0,0,0,0.4);
+    margin-top: 1%;
+}
+.sneakerhead > h1{
+    color: rgb(240, 122, 12);
+    font-family:cursive;
+    text-shadow: 2px 2px #999696;
+    word-spacing: 2px;
+    letter-spacing: 2px;
+}
+.maincard{
+    min-height: 90vh;
+    width: 70vw;
+    /* background-color: violet; */
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+ 
+    
+}
+.maincard >.cards{
+    width: 20vw;
+    height: 60vh;
+    border: 1px solid #ccc;
+    margin: 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 1px 3px #b9b8b8;
+    transition: .5s;
+    /* background-color: #211616; */
+}
+.cardimg{
+    height: 40vh;
+    width: 18vw;
+    /* background-color: black; */
+    border-radius: 20px;
+    margin: 10px;
+  
+}
+
+.cardimg > img{
+    height: 40vh;
+    width: 18vw;
+    border-radius: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.cards:hover {
+    box-shadow: 5px 2px 3px rgba(0,0,0,0.4);
+    transform: scale(1.02,1.02);
+  }
+  .content{
+    height: 18vh;
+    width: 20vw;
+    /* background-color: #b9b8b8; */
+    display: flex;
+    border-radius: 0px 0px 10px 10px;
+  }
+
+  .left{
+    height: 16vh;
+    width: 10vw;
+    /* background-color: aqua; */
+    border-radius: 0px 0px 10px 10px;
+  }
+  .right{
+    height: 16vh;
+    width: 10vw;
+    /* background-color: rgb(180, 223, 23); */
+    border-radius: 0px 0px 10px 10px;
+  }
+  p{
+    font-size:11px;
+    padding-left: 5px;
+    margin: 5px;
+    margin-left: 2px;
+    font-weight: 700;
+  }
+  .fade{
+    color: #5c5a5a;
+    font-weight: 900;
+    font-size:11px;
+  }
+
+.right > i{
+  font-size: 2.4rem;
+  display: flex;
+  justify-content: end;
+  margin: 20%;
+  font-weight: bolder;
+}
+
+
+
+
+/* ---------------------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  position: relative;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  transition: background-color .6s cubic-bezier(.7, 0, .7, 1);  
+}
+
+body.dark {
+  background-color: #000000;
+  color: #FFF;
+  span {
+    color: #fff
+  }
+  .sneakerhead{
+    box-shadow: 5px 2px 3px rgba(236, 236, 236, 0.4);
+  }
+  .fade{
+    color: #a7a7a7;
+    font-weight: 900;
+    font-size:11px;
+  }
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  margin: 1em 0 0 1em;
+  span {
+    font-family: sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: color .4s cubic-bezier(.7, 0, .7, 1);
+  }
+}
+
+input[type="checkbox"] {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+label {
+  display: block;
+  background-color: #ddd;
+  width: 60px;
+  height: 30px;
+  border-radius: 2em;
+  overflow: hidden;
+  transition: transform .6s cubic-bezier(.7, 0, .7, 1);
+  margin: 0 .5em
+}
+
+label::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #090b09;
+  border-radius: inherit;
+  transform: translateX(-80%);
+  transition: transform .4s cubic-bezier(.7, 0, .7, 1);
+}
+
+label::after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 30px;
+  background-color: #FFF;  
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .35);
+  border: 1px solid #ccc;
+  transform: translateX(0);
+  cursor: pointer;
+  transition: transform .4s cubic-bezier(.7, 0, .7, 1);
+  z-index: 1;
+}
+
+input[type="checkbox"]:checked ~ label {
+  &::after {
+    transform: translateX(100%);
+  }
+  &::before {
+    transform: translateX(0);
+  }
+}
+
+input[type="checkbox"]:checked ~ label,
+input[type="checkbox"]:focus ~ label{
+  outline: solid 1px rgb(255, 255, 255);
+}
+
+
+/* ------------------------------------------------------------------------------------------  */
+
+
+@media screen and (max-width : 480px){
+
+
+  body {
+    font-size: 90%
+  }
+  .maincard{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;  
+    width: 80vw;
+
+}
+.maincard > .cards{
+    width: 80vw;  
+}
+.content{
+  height: 18vh;
+  width: 80vw;
+  /* background-color: #b9b8b8; */
+  display: flex;
+  border-radius: 0px 0px 10px 10px;
+}
+.cardimg > img {
+  width: 74vw;
+  border-radius: 20px;
+}
+.left {
+  width: 50vw;
+}
+
+.right {
+  width: 30vw;
+}
+p{
+  font-size:20px;
+}
+.right > i{
+  font-size: 3rem;
+}
+ .fade{
+  font-size:20px;
+}
+
+}
+@media screen and (min-device-width: 481px) and (max-device-width: 768px) { 
+  .maincard {
+    width: 90vw;
+    }
+    .maincard >.cards {
+      width: 40vw;  
+  }
+  .content{
+    height: 18vh;
+    width: 80vw;
+    /* background-color: #b9b8b8; */
+    display: flex;
+    border-radius: 0px 0px 10px 10px;
+  }
+  .cardimg > img {
+    width: 37vw;
+  }
+  .left {
+    width: 28vw;
+}
+p{
+  font-size:20px;
+}
+.right > i{
+  font-size: 3rem;
+}
+ .fade{
+  font-size:20px;
+}
+}
+@media screen and (min-device-width: 796px) and (max-device-width: 1279px) { 
+  .maincard {
+    width: 90vw;
+    }
+    .maincard >.cards {
+      width: 40vw;  
+  }
+  .content{
+    height: 18vh;
+    width: 80vw;
+    /* background-color: #b9b8b8; */
+    display: flex;
+    border-radius: 0px 0px 10px 10px;
+  }
+  .cardimg > img {
+    width: 37vw;
+  }
+  .left {
+    width: 28vw;
+}
+p{
+  font-size:20px;
+}
+.right > i{
+  font-size: 3rem;
+}
+ .fade{
+  font-size:20px;
+}
+}
